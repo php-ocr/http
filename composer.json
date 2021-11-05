@@ -1,6 +1,6 @@
 {
-    "name": "ocr/http",
-    "description": "HTTP modules for the OCR library.",
+    "name": "ocr/http-engine",
+    "description": "HTTP engine for the OCR library.",
     "type": "library",
     "license": "GPL-3.0-only",
     "minimum-stability": "stable",
