@@ -23,7 +23,7 @@
         "vimeo/psalm": "^4.11"
     },
     "suggest": {
-        "php-http/multipart-stream-builder": "^1.2"
+        "guzzlehttp/psr7": "^2.1"
     },
     "autoload": {
         "psr-4": {

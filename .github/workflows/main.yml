@@ -19,7 +19,7 @@ jobs:
                 with:
                     submodules: recursive
             - run: docker run --volume=${PWD}:/app composer install
-            - run: docker run --volume=${PWD}:/app composer require php-http/multipart-stream-builder
+            - run: docker run --volume=${PWD}:/app composer require guzzlehttp/psr7
             - run: docker-compose --file=docker/docker-compose.yml run application pipelines/analyze/phpstan
             - run: docker-compose --file=docker/docker-compose.yml run application pipelines/analyze/psalm
             # Fails due to some autoloading issue.
@@ -40,7 +40,7 @@ jobs:
                 with:
                     submodules: recursive
             - run: docker run --volume=${PWD}:/app composer install
-            - run: docker run --volume=${PWD}:/app composer require php-http/multipart-stream-builder
+            - run: docker run --volume=${PWD}:/app composer require guzzlehttp/psr7
             - run: docker-compose --file=docker/docker-compose.yml run application pipelines/lint/code-sniffer
             - run: docker-compose --file=docker/docker-compose.yml run application pipelines/lint/code-style-fixer
             - run: docker-compose --file=docker/docker-compose.yml run application pipelines/lint/copy-paste-detector
@@ -60,5 +60,5 @@ jobs:
                 with:
                     submodules: recursive
             - run: docker run --volume=${PWD}:/app composer install
-            - run: docker run --volume=${PWD}:/app composer require php-http/multipart-stream-builder
+            - run: docker run --volume=${PWD}:/app composer require guzzlehttp/psr7
             - run: docker-compose --file=docker/docker-compose.yml run application pipelines/test/phpunit
