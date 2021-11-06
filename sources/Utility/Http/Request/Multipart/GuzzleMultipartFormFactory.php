@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OCR\Utility\Http;
+namespace OCR\Utility\Http\Request\Multipart;
 
 use GuzzleHttp\Psr7\MultipartStream;
 use OCR\Input\InputInterface;

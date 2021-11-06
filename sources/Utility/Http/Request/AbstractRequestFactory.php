@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OCR\Utility\Http\Request;
 
-use OCR\Utility\Http\MultipartFormFactoryInterface;
+use OCR\Utility\Http\Request\Multipart\MultipartFormFactoryInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 
 abstract class AbstractRequestFactory implements RequestFactoryInterface

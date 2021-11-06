@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OCR\Utility\Http;
+namespace OCR\Utility\Http\Request\Multipart;
 
 use OCR\Input\InputInterface;
 use Psr\Http\Message\StreamInterface;
