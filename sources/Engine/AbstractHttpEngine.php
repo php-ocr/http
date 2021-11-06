@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace OCR\Engine;
 
 use OCR\Input\InputInterface;
+use OCR\Utility\Http\Request\RequestFactoryInterface;
+use OCR\Utility\Http\Response\ResponseParserInterface;
 use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractHttpEngine extends AbstractEngine
 {
@@ -22,14 +22,17 @@ abstract class AbstractHttpEngine extends AbstractEngine
 
     public function process(InputInterface $input): string
     {
-        $request = $this->createRequest($input);
+        $requestFactory = $this->createRequestFactory();
+        $request = $requestFactory->createRequest($this, $input);
+
         $response = $this->client->sendRequest($request);
-        $result = $this->parseResponse($response);
+        $responseParser = $this->createResponseParser();
+        $result = $responseParser->parse($this, $response);
 
         return $result;
     }
 
-    abstract protected function createRequest(InputInterface $input): RequestInterface;
+    abstract protected function createRequestFactory(): RequestFactoryInterface;
 
-    abstract protected function parseResponse(ResponseInterface $response): string;
+    abstract protected function createResponseParser(): ResponseParserInterface;
 }
